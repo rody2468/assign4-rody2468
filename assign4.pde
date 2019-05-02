@@ -8,9 +8,9 @@ PImage[][] soils, stones;
 int q;
 int a;
 int w;
-int []b =new int [24];
+int []hole1 =new int [24];
 int c;
-int []d =new int [24];
+int []hole2 =new int [24];
 
 final int GAME_START = 0, GAME_RUN = 1, GAME_OVER = 2;
 int gameState = 0;
@@ -109,12 +109,12 @@ void setup() {
      for(int a=1; a<24 ; a++){
        c = floor(random(0, 2));
        if(c == 0){
-         b[a] = floor(random(0, 8));
-         d[a] = b[a];
+         hole1[a] = floor(random(0, 8));
+         hole2[a] = hole1[a];
        }
        else{
-         d[a] = floor(random(0, 8));
-         b[a] = floor(random(0, 8));
+         hole2[a] = floor(random(0, 8));
+         hole1[a] = floor(random(0, 8));
        }
      }
 
@@ -298,10 +298,10 @@ void draw() {
       //soilEmpty
       for(int i = 1 ; i < 24; i++){
      
-      image ( soilEmpty, 80*b[i] ,80*i );
-      soilHealth[b[i]][i] = 0 ;
-      image ( soilEmpty, 80*d[i] ,80*i );
-      soilHealth[d[i]][i] = 0 ;
+      image ( soilEmpty, 80*hole1[i] ,80*i );
+      soilHealth[hole1[i]][i] = 0 ;
+      image ( soilEmpty, 80*hole2[i] ,80*i );
+      soilHealth[hole2[i]][i] = 0 ;
     }
     
     if(playerHealth<=5){
